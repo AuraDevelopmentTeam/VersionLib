@@ -17,7 +17,7 @@ import dev.aura.lib.version.Version;
 public class VersionTest {
     private final static int SHUFFLES = 10000;
 
-    private static void testArray(Version[] expectedOrder) {
+    private static void testArray(Version[] expectedOrder) throws ArrayComparisonFailure {
         List<Version> versions = new ArrayList<>(Arrays.asList(expectedOrder));
         Version[] sortedVersions;
 

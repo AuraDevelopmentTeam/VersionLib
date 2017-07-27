@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
@@ -16,6 +17,7 @@ public class Version implements Comparable<Version> {
             Pattern.compile("\\."), Pattern.compile("(?=\\d)(?<=[a-z])|(?=[a-z])(?<=\\d)", Pattern.CASE_INSENSITIVE) };
     private static final Pattern number = Pattern.compile("^\\d+$");
 
+    @Getter
     private final String input;
     private final VersionComponent component;
 
