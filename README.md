@@ -41,7 +41,7 @@ appropriate version!)
 
     <repositories>
         <repository>
-            <id>AuraDevelopmentTeam/id>
+            <id>AuraDevelopmentTeam</id>
             <url>https://maven.jnc.world</url>
         </repository>
     </repositories>
