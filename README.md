@@ -2,7 +2,7 @@
 
 [![Current Version](https://badge.fury.io/gh/AuraDevelopmentTeam%2FVersionLib.svg)](https://maven.jnc.world/dev/aura/lib/version/VersionLib/)
 [![Build Status](https://gitlab.brainstonemod.com/AuraDev/VersionLib/badges/master/build.svg)](https://gitlab.brainstonemod.com/AuraDev/VersionLib/pipelines)
-[![Coverage Report](https://gitlab.brainstonemod.com/AuraDev/VersionLib/badges/master/coverage.svg)](https://gitlab.brainstonemod.com/AuraDev/VersionLib/pipelines)
+[![Coverage Report](https://gitlab.brainstonemod.com/AuraDev/VersionLib/badges/master/coverage.svg)](https://auradev.pages.brainstonemod.com/VersionLib/coverage/VersionLib/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f3362b2ecf874c269017381109a749e4)](https://www.codacy.com/app/AuraDevelopmentTeam/VersionLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AuraDevelopmentTeam/VersionLib&amp;utm_campaign=Badge_Grade)
 [![Issue Stats](https://img.shields.io/issuestats/i/github/AuraDevelopmentTeam/VersionLib.svg)](https://github.com/AuraDevelopmentTeam/VersionLib/issues)
 [![License](https://img.shields.io/github/license/AuraDevelopmentTeam/VersionLib.svg)](https://github.com/AuraDevelopmentTeam/VersionLib/blob/master/LICENSE)
