@@ -1,29 +1,19 @@
 package dev.aura.lib.version;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
+import dev.aura.lib.version.impl.VersionComponent;
+import dev.aura.lib.version.impl.VersionParser;
 import lombok.Getter;
 import lombok.ToString;
 
 @ToString
 public class Version implements Comparable<Version> {
-    protected static final NumberComponent ZERO = new NumberComponent(BigInteger.ZERO);
-
-    private static final Pattern[] listSeparators = new Pattern[] { Pattern.compile("_"), Pattern.compile("-"),
-            Pattern.compile("\\."), Pattern.compile("(?=\\d)(?<=[a-z])|(?=[a-z])(?<=\\d)", Pattern.CASE_INSENSITIVE) };
-    private static final Pattern number = Pattern.compile("^\\d+$");
-
     @Getter
     private final String input;
     private final VersionComponent component;
 
     public Version(String version) {
         input = version;
-        component = parse(version);
+        component = VersionParser.parse(version);
     }
 
     @Override
@@ -37,22 +27,5 @@ public class Version implements Comparable<Version> {
             return false;
 
         return compareTo((Version) other) == 0;
-    }
-
-    private static VersionComponent parse(String version) {
-        Matcher matcher;
-
-        for (Pattern separator : listSeparators) {
-            matcher = separator.matcher(version);
-
-            if (matcher.find())
-                return new ListComponent(
-                        Arrays.stream(separator.split(version)).map(Version::parse).collect(Collectors.toList()));
-        }
-
-        if (number.matcher(version).find())
-            return new NumberComponent(new BigInteger(version));
-        else
-            return new StringComponent(version);
     }
 }

@@ -1,4 +1,4 @@
-package dev.aura.lib.version;
+package dev.aura.lib.version.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,13 +42,13 @@ public class ListComponent implements VersionComponent {
             if (i < thisSize) {
                 thisComponent = components.get(i);
             } else {
-                thisComponent = Version.ZERO;
+                thisComponent = VersionParser.ZERO;
             }
 
             if (i < thatSize) {
                 thatComponent = thatList.components.get(i);
             } else {
-                thatComponent = Version.ZERO;
+                thatComponent = VersionParser.ZERO;
             }
 
             result = thisComponent.compareTo(thatComponent);

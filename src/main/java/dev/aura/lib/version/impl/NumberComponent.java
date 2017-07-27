@@ -1,4 +1,6 @@
-package dev.aura.lib.version;
+package dev.aura.lib.version.impl;
+
+import java.math.BigInteger;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -6,25 +8,25 @@ import lombok.ToString;
 
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
-public class StringComponent implements VersionComponent {
-    protected final String string;
+public class NumberComponent implements VersionComponent {
+    protected final BigInteger number;
 
     @Override
     public final VersionComponentType getVersionComponentType() {
-        return VersionComponentType.STRING;
+        return VersionComponentType.NUMBER;
     }
 
     @Override
     public int compareTo(VersionComponent that) {
-        // TODO: Implement comparison logic! With special cases etc!
-
         VersionComponentType thatType = that.getVersionComponentType();
 
-        if (thatType != VersionComponentType.STRING)
+        if (thatType == VersionComponentType.LIST)
             return -that.compareTo(this);
+        else if (thatType == VersionComponentType.STRING)
+            return 1;
 
-        StringComponent thatString = (StringComponent) that;
+        NumberComponent thatNumber = (NumberComponent) that;
 
-        return string.compareTo(thatString.string);
+        return number.compareTo(thatNumber.number);
     }
 }
