@@ -51,7 +51,7 @@ appropriate version!)
             <groupId>dev.aura.lib.version</groupId>
             <artifactId>VersionLib</artifactId>
             <version>{version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -65,7 +65,7 @@ appropriate version!)
     }
 
     dependencies {
-        provided "dev.aura.lib.version:VersionLib:{version}"
+        compile "dev.aura.lib.version:VersionLib:{version}"
     }
 
 ## [Issue Reporting](https://github.com/AuraDevelopmentTeam/VersionLib/issues)
