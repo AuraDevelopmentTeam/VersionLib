@@ -1,4 +1,4 @@
-package dev.aura.updatechecker.test.version;
+package dev.aura.lib.test.version;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import dev.aura.updatechecker.version.VersionComponentType;
+import dev.aura.lib.version.VersionComponentType;
 
 public class VersionComponentTypeTest {
     @Test

@@ -1,4 +1,4 @@
-package dev.aura.updatechecker.version;
+package dev.aura.lib.version;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

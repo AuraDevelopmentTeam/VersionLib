@@ -1,4 +1,4 @@
-package dev.aura.updatechecker.test.version;
+package dev.aura.lib.test.version;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -12,7 +12,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.internal.ArrayComparisonFailure;
 
-import dev.aura.updatechecker.version.Version;
+import dev.aura.lib.version.Version;
 
 public class VersionTest {
     private final static int SHUFFLES = 10000;
