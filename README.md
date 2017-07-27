@@ -17,7 +17,7 @@ A simple library for comparing versions!
 	- [Gradle](#gradle)
 - [Issue Reporting](#issue-reporting)
 - [Feature Requests](#feature-requests)
-- [Developing with our Plugin](#developing-with-our-plugin)
+- [Developing with the API](#developing-with-the-api)
 - [Setting up a Workspace/Compiling from Source](#setting-up-a-workspacecompiling-from-source)
 - [Development builds](#development-builds)
 - [PGP Signing](#pgp-signing)
