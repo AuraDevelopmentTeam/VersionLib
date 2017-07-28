@@ -17,18 +17,19 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class TestUtils {
     private final static int SHUFFLES = 10000;
-    
+
     public static void testArray(Version[] expectedOrder) throws ArrayComparisonFailure {
         testArray(expectedOrder, VersionComparators.VERSION);
     }
-    
+
+    @SuppressWarnings("unchecked")
     public static <T> void testArray(T[] expectedOrder, Comparator<T> comparator) throws ArrayComparisonFailure {
         List<T> versions = new ArrayList<>(Arrays.asList(expectedOrder));
-        Version[] sortedVersions;
+        T[] sortedVersions;
 
         for (int i = 0; i < SHUFFLES; ++i) {
             Collections.shuffle(versions);
-            sortedVersions = versions.stream().sorted(comparator).toArray(Version[]::new);
+            sortedVersions = (T[]) versions.stream().sorted(comparator).toArray(Object[]::new);
 
             try {
                 assertArrayEquals(expectedOrder, sortedVersions);

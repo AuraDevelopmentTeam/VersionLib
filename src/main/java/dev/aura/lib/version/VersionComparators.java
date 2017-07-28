@@ -34,7 +34,7 @@ public class VersionComparators {
      * <br>
      * Equivalent to {@link Comparator#reversed()
      * VersionComparators.VERSION.reversed()}
-     * 
+     *
      * @see Comparator#reversed()
      * @see Comparator#naturalOrder()
      */
@@ -45,7 +45,7 @@ public class VersionComparators {
      * <br>
      * Equivalent to {@link Comparator#reversed()
      * VersionComparators.VERSION_STRING.reversed()}
-     * 
+     *
      * @see Comparator#reversed()
      * @see Comparator#comparing(Function)
      * @see Comparator#naturalOrder()
