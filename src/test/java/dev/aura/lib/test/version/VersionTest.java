@@ -82,6 +82,15 @@ public class VersionTest {
     }
 
     @Test
+    public void listPriorityTest() {
+        final Version[] expectedOrder = Arrays.asList("1-2", "1.1-2", "1.1.1-2", "1.1.1.1-2", "1.1.1.1.1-2",
+                "1.1.1.1.1.1-2", "1.1.1.1.1.1.1-2", "1.1.1.1.1.1.1.1-2", "1.1.1.1.1.1.1.1.1-2").stream()
+                .map(Version::new).toArray(Version[]::new);
+
+        TestUtils.testArray(expectedOrder);
+    }
+
+    @Test
     public void mixedTypesTest() {
         final Version[] expectedOrder = Arrays.asList(".", ".", "A.A", "A", "1", "1.1").stream().map(Version::new)
                 .toArray(Version[]::new);
