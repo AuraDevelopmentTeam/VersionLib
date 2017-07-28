@@ -1,46 +1,22 @@
 package dev.aura.lib.test.version;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import org.junit.Test;
-import org.junit.internal.ArrayComparisonFailure;
 
 import dev.aura.lib.version.Version;
 
 public class VersionTest {
-    private final static int SHUFFLES = 10000;
-
-    private static void testArray(Version[] expectedOrder) throws ArrayComparisonFailure {
-        List<Version> versions = new ArrayList<>(Arrays.asList(expectedOrder));
-        Version[] sortedVersions;
-
-        for (int i = 0; i < SHUFFLES; ++i) {
-            Collections.shuffle(versions);
-            sortedVersions = versions.stream().sorted().toArray(Version[]::new);
-
-            try {
-                assertArrayEquals(expectedOrder, sortedVersions);
-            } catch (ArrayComparisonFailure e) {
-                assertArrayEquals("Sorting failed for shuffle:\n" + versions + "\nSorted result:\n"
-                        + Arrays.toString(sortedVersions) + '\n', expectedOrder, sortedVersions);
-            }
-        }
-    }
-
     @Test
     public void basicTest() {
         final Version[] expectedOrder = Arrays
                 .asList("0.0.0", "0.0.1", "0.1.0", "0.1.1", "1.0.0", "1.0.1", "1.1.0", "1.1.1").stream()
                 .map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -51,7 +27,7 @@ public class VersionTest {
                 "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -59,7 +35,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("1.0.0", "1.0.0", "2.0.0", "2.0.0", "3.0.0", "3.0.0").stream()
                 .map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -94,7 +70,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("0.0.0.0.0.1", "0.0.0.0.1", "0.0.0.1", "0.0.1", "0.1", "1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -102,7 +78,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("1", "1.1", "1.1.1", "1.1.1.1", "1.1.1.1.1", "1.1.1.1.1.1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -110,7 +86,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList(".", ".", "A.A", "A", "1", "1.1").stream().map(Version::new)
                 .toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
@@ -120,7 +96,7 @@ public class VersionTest {
                         "1.0-0.0", "1.0-0.1", "1.0-1.0", "1.0-1.1", "1.1-0.0", "1.1-0.1", "1.1-1.0", "1.1-1.1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        testArray(expectedOrder);
+        TestUtils.testArray(expectedOrder);
     }
 
     @Test
