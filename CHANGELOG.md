@@ -1,3 +1,10 @@
+Version 1.0.2
+-------------
+
+\+ Added VersionComparators.  
+\* More documentation.  
+
+
 Version 1.0.1
 -------------
 
