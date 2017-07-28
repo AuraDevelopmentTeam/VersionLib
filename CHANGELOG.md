@@ -3,6 +3,7 @@ Version 1.0.2
 
 \+ Added VersionComparators.  
 \* More documentation.  
+\* StringComponent compares case insensitive.  
 
 
 Version 1.0.1

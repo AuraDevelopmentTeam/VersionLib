@@ -1,13 +1,14 @@
 package dev.aura.lib.version.impl;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
 public class StringComponent implements VersionComponent {
     protected final String string;
+
+    protected StringComponent(String string) {
+        this.string = string.toLowerCase();
+    }
 
     @Override
     public final VersionComponentType getVersionComponentType() {
