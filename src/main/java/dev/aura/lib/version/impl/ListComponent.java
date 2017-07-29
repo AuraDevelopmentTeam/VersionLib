@@ -22,15 +22,14 @@ public class ListComponent extends VersionComponent {
         this.components = components.collect(Collectors.toCollection(ArrayList<VersionComponent>::new));
     }
 
-    @Override
-    public final VersionComponent.Type getVersionComponentType() {
-        return VersionComponent.Type.LIST;
+    protected ListComponent(VersionComponent... components) {
+        this(Arrays.asList(components));
     }
 
     @Override
     public int compareTo(VersionComponent that) {
         if (that.getVersionComponentType() != VersionComponent.Type.LIST)
-            return compareTo(new ListComponent(Arrays.asList(that)));
+            return compareTo(new ListComponent(that));
 
         ListComponent thatList = (ListComponent) that;
         boolean empty = components.isEmpty();
@@ -68,5 +67,10 @@ public class ListComponent extends VersionComponent {
         }
 
         return 0;
+    }
+
+    @Override
+    public final VersionComponent.Type getVersionComponentType() {
+        return VersionComponent.Type.LIST;
     }
 }
