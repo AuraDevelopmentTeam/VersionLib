@@ -1,6 +1,10 @@
 package dev.aura.lib.version.impl;
 
-public abstract class VersionComponent implements Comparable<VersionComponent> {
+import java.io.Serializable;
+
+public abstract class VersionComponent implements Comparable<VersionComponent>, Serializable {
+    private static final long serialVersionUID = -2749335799078827962L;
+
     public abstract VersionComponentType getVersionComponentType();
 
     @Override

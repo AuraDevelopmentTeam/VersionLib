@@ -10,6 +10,8 @@ import lombok.ToString;
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
 public class ListComponent extends VersionComponent {
+    private static final long serialVersionUID = -2227223164775220736L;
+
     protected final List<VersionComponent> components;
 
     @Override
