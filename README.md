@@ -131,7 +131,6 @@ it! Since it is still a lot of work we would really appreciate it if you could s
 
 ## Random Quote
 
-> In software, we rarely have meaningful requirements. Even if we do, the only measure of success that matters is whether our solution solves the customer’s
-> shifting idea of what their problem is.
+> Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.
 >
-> — <cite>Jeff Atwood</cite>
+> — <cite>Jamie Zawinski</cite>
