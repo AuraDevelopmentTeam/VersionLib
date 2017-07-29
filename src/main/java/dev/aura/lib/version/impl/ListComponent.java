@@ -15,13 +15,13 @@ public class ListComponent extends VersionComponent {
     protected final List<VersionComponent> components;
 
     @Override
-    public final VersionComponentType getVersionComponentType() {
-        return VersionComponentType.LIST;
+    public final VersionComponent.Type getVersionComponentType() {
+        return VersionComponent.Type.LIST;
     }
 
     @Override
     public int compareTo(VersionComponent that) {
-        if (that.getVersionComponentType() != VersionComponentType.LIST)
+        if (that.getVersionComponentType() != VersionComponent.Type.LIST)
             return compareTo(new ListComponent(Arrays.asList(that)));
 
         ListComponent thatList = (ListComponent) that;

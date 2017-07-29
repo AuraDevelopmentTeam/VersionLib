@@ -5,7 +5,7 @@ import java.io.Serializable;
 public abstract class VersionComponent implements Comparable<VersionComponent>, Serializable {
     private static final long serialVersionUID = -2749335799078827962L;
 
-    public abstract VersionComponentType getVersionComponentType();
+    public abstract VersionComponent.Type getVersionComponentType();
 
     @Override
     public final boolean equals(Object other) {
@@ -13,5 +13,9 @@ public abstract class VersionComponent implements Comparable<VersionComponent>, 
             return false;
 
         return compareTo((VersionComponent) other) == 0;
+    }
+
+    public static enum Type {
+        LIST, NUMBER, STRING;
     }
 }

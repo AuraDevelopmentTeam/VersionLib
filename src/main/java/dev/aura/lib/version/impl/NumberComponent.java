@@ -14,17 +14,17 @@ public class NumberComponent extends VersionComponent {
     protected final BigInteger number;
 
     @Override
-    public final VersionComponentType getVersionComponentType() {
-        return VersionComponentType.NUMBER;
+    public final VersionComponent.Type getVersionComponentType() {
+        return VersionComponent.Type.NUMBER;
     }
 
     @Override
     public int compareTo(VersionComponent that) {
-        VersionComponentType thatType = that.getVersionComponentType();
+        VersionComponent.Type thatType = that.getVersionComponentType();
 
-        if (thatType == VersionComponentType.LIST)
+        if (thatType == VersionComponent.Type.LIST)
             return -that.compareTo(this);
-        else if (thatType == VersionComponentType.STRING)
+        else if (thatType == VersionComponent.Type.STRING)
             return 1;
 
         NumberComponent thatNumber = (NumberComponent) that;

@@ -7,17 +7,17 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import dev.aura.lib.version.impl.VersionComponentType;
+import dev.aura.lib.version.impl.VersionComponent;
 
-public class VersionComponentTypeTest {
+public class VersionComponentTest {
     @Test
     public void integrityTest() {
         assertEquals("Enum does not contain the expected values", "[LIST, NUMBER, STRING]",
-                Arrays.toString(VersionComponentType.values()));
+                Arrays.toString(VersionComponent.Type.values()));
 
-        for (VersionComponentType type : VersionComponentType.values()) {
+        for (VersionComponent.Type type : VersionComponent.Type.values()) {
             assertSame("Turning the type into a string and back doesn't work!", type,
-                    VersionComponentType.valueOf(type.toString()));
+                    VersionComponent.Type.valueOf(type.toString()));
         }
     }
 }

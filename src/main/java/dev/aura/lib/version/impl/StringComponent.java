@@ -13,17 +13,17 @@ public class StringComponent extends VersionComponent {
     }
 
     @Override
-    public final VersionComponentType getVersionComponentType() {
-        return VersionComponentType.STRING;
+    public final VersionComponent.Type getVersionComponentType() {
+        return VersionComponent.Type.STRING;
     }
 
     @Override
     public int compareTo(VersionComponent that) {
         // TODO: Implement comparison logic! With special cases etc!
 
-        VersionComponentType thatType = that.getVersionComponentType();
+        VersionComponent.Type thatType = that.getVersionComponentType();
 
-        if (thatType != VersionComponentType.STRING)
+        if (thatType != VersionComponent.Type.STRING)
             return -that.compareTo(this);
 
         StringComponent thatString = (StringComponent) that;
