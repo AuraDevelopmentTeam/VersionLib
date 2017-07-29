@@ -4,10 +4,8 @@ import lombok.ToString;
 
 @ToString(includeFieldNames = false)
 public class StringComponent extends VersionComponent {
-    /**
-     *
-     */
     private static final long serialVersionUID = -2611240828179218042L;
+
     protected final String string;
 
     protected StringComponent(String string) {
