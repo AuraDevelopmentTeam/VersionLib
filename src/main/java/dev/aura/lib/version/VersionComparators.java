@@ -6,7 +6,8 @@ import java.util.function.Function;
 import lombok.experimental.UtilityClass;
 
 /**
- * This class defines a bunch of default comparators for simplicity.
+ * This class defines a bunch of default comparators for simplicity and
+ * convenience.
  */
 @UtilityClass
 public class VersionComparators {
