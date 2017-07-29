@@ -18,12 +18,12 @@ import lombok.experimental.UtilityClass;
 public class TestUtils {
     private final static int SHUFFLES = 10000;
 
-    public static void testArray(Version[] expectedOrder) throws ArrayComparisonFailure {
-        testArray(expectedOrder, VersionComparators.VERSION);
+    public static void assertSortsCorrectly(Version[] expectedOrder) throws ArrayComparisonFailure {
+        assertSortsCorrectly(expectedOrder, VersionComparators.VERSION);
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void testArray(T[] expectedOrder, Comparator<T> comparator) throws ArrayComparisonFailure {
+    public static <T> void assertSortsCorrectly(T[] expectedOrder, Comparator<T> comparator) throws ArrayComparisonFailure {
         List<T> versions = new ArrayList<>(Arrays.asList(expectedOrder));
         T[] sortedVersions;
 

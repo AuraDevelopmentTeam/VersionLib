@@ -16,7 +16,7 @@ public class VersionTest {
                 .asList("0.0.0", "0.0.1", "0.1.0", "0.1.1", "1.0.0", "1.0.1", "1.1.0", "1.1.1").stream()
                 .map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class VersionTest {
                 "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("1.0.0", "1.0.0", "2.0.0", "2.0.0", "3.0.0", "3.0.0").stream()
                 .map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("0.0.0.0.0.1", "0.0.0.0.1", "0.0.0.1", "0.0.1", "0.1", "1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList("1", "1.1", "1.1.1", "1.1.1.1", "1.1.1.1.1", "1.1.1.1.1.1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class VersionTest {
                 "1.1.1.1.1.1-2", "1.1.1.1.1.1.1-2", "1.1.1.1.1.1.1.1-2", "1.1.1.1.1.1.1.1.1-2").stream()
                 .map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class VersionTest {
         final Version[] expectedOrder = Arrays.asList(".", ".", "A.A", "A", "1", "1.1").stream().map(Version::new)
                 .toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class VersionTest {
                         "1.0-0.0", "1.0-0.1", "1.0-1.0", "1.0-1.1", "1.1-0.0", "1.1-0.1", "1.1-1.0", "1.1-1.1")
                 .stream().map(Version::new).toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder);
+        TestUtils.assertSortsCorrectly(expectedOrder);
     }
 
     @Test

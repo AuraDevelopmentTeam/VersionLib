@@ -13,12 +13,12 @@ public class VersionComparatorsTest {
     public void stringComparatorTest() {
         final String[] expectedOrder = new String[] { "1.2.3", "1.2.4", "1.3.3", "2.2.3" };
 
-        TestUtils.testArray(expectedOrder, VersionComparators.VERSION_STRING);
+        TestUtils.assertSortsCorrectly(expectedOrder, VersionComparators.VERSION_STRING);
 
         // Reverses array
         Collections.reverse(Arrays.asList(expectedOrder));
 
-        TestUtils.testArray(expectedOrder, VersionComparators.VERSION_STRING_REVERSE);
+        TestUtils.assertSortsCorrectly(expectedOrder, VersionComparators.VERSION_STRING_REVERSE);
     }
 
     @Test
@@ -26,11 +26,11 @@ public class VersionComparatorsTest {
         final Version[] expectedOrder = Arrays.asList("1.2.3", "1.2.4", "1.3.3", "2.2.3").stream().map(Version::new)
                 .toArray(Version[]::new);
 
-        TestUtils.testArray(expectedOrder, VersionComparators.VERSION);
+        TestUtils.assertSortsCorrectly(expectedOrder, VersionComparators.VERSION);
 
         // Reverses array
         Collections.reverse(Arrays.asList(expectedOrder));
 
-        TestUtils.testArray(expectedOrder, VersionComparators.VERSION_REVERSE);
+        TestUtils.assertSortsCorrectly(expectedOrder, VersionComparators.VERSION_REVERSE);
     }
 }
