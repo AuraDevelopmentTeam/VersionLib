@@ -12,7 +12,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import dev.aura.lib.version.Version;
 import lombok.Cleanup;
 
 public class VersionTest {

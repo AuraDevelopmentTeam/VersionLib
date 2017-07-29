@@ -5,9 +5,6 @@ import java.util.Collections;
 
 import org.junit.Test;
 
-import dev.aura.lib.version.Version;
-import dev.aura.lib.version.VersionComparators;
-
 public class VersionComparatorsTest {
     @Test
     public void stringComparatorTest() {

@@ -7,8 +7,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import dev.aura.lib.version.impl.VersionComponent;
-
 public class VersionComponentTest {
     @Test
     public void enumIntegrityTest() {
