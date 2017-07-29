@@ -1,11 +1,9 @@
 package dev.aura.lib.version.impl;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import lombok.experimental.UtilityClass;
 
@@ -24,8 +22,7 @@ public class VersionParser {
             matcher = separator.matcher(version);
 
             if (matcher.find())
-                return new ListComponent(new ArrayList<>(Arrays.stream(separator.split(version))
-                        .map(VersionParser::parse).collect(Collectors.toList())));
+                return new ListComponent(Arrays.stream(separator.split(version)).map(VersionParser::parse));
         }
 
         if (number.matcher(version).find())

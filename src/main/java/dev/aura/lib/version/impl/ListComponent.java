@@ -1,18 +1,26 @@
 package dev.aura.lib.version.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
 public class ListComponent extends VersionComponent {
     private static final long serialVersionUID = -2227223164775220736L;
 
-    protected final List<VersionComponent> components;
+    protected final ArrayList<VersionComponent> components;
+
+    protected ListComponent(Collection<VersionComponent> components) {
+        this.components = new ArrayList<>(components);
+    }
+
+    protected ListComponent(Stream<VersionComponent> components) {
+        this.components = components.collect(Collectors.toCollection(ArrayList<VersionComponent>::new));
+    }
 
     @Override
     public final VersionComponent.Type getVersionComponentType() {
