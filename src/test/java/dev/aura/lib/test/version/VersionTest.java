@@ -3,11 +3,17 @@ package dev.aura.lib.test.version;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import dev.aura.lib.version.Version;
+import lombok.Cleanup;
 
 public class VersionTest {
     @Test
@@ -96,6 +102,29 @@ public class VersionTest {
                 .toArray(Version[]::new);
 
         TestUtils.assertSortsCorrectly(expectedOrder);
+    }
+
+    @Test
+    public void serializationTest() throws IOException, ClassNotFoundException {
+        final Version versionIn = new Version("1.12-5.4.9_1.10.2-0.4.1.66-beta_1.12-1.3.0.15");
+
+        @Cleanup
+        ByteArrayOutputStream outByteStream = new ByteArrayOutputStream();
+        @Cleanup
+        ObjectOutputStream outStream = new ObjectOutputStream(outByteStream);
+
+        outStream.writeObject(versionIn);
+
+        outStream.close();
+
+        @Cleanup
+        ByteArrayInputStream inByteStream = new ByteArrayInputStream(outByteStream.toByteArray());
+        @Cleanup
+        ObjectInputStream inStream = new ObjectInputStream(inByteStream);
+
+        Version versionOut = (Version) inStream.readObject();
+
+        assertEquals("Serialization and Deserialization did not work", versionIn, versionOut);
     }
 
     @Test
