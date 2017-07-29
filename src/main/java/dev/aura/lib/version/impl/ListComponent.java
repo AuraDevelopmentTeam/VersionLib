@@ -9,7 +9,7 @@ import lombok.ToString;
 
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
-public class ListComponent implements VersionComponent {
+public class ListComponent extends VersionComponent {
     protected final List<VersionComponent> components;
 
     @Override

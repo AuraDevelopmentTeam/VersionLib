@@ -23,7 +23,8 @@ public class TestUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void assertSortsCorrectly(T[] expectedOrder, Comparator<T> comparator) throws ArrayComparisonFailure {
+    public static <T> void assertSortsCorrectly(T[] expectedOrder, Comparator<T> comparator)
+            throws ArrayComparisonFailure {
         List<T> versions = new ArrayList<>(Arrays.asList(expectedOrder));
         T[] sortedVersions;
 

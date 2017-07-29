@@ -8,7 +8,7 @@ import lombok.ToString;
 
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeFieldNames = false)
-public class NumberComponent implements VersionComponent {
+public class NumberComponent extends VersionComponent {
     protected final BigInteger number;
 
     @Override

@@ -3,7 +3,7 @@ package dev.aura.lib.version.impl;
 import lombok.ToString;
 
 @ToString(includeFieldNames = false)
-public class StringComponent implements VersionComponent {
+public class StringComponent extends VersionComponent {
     protected final String string;
 
     protected StringComponent(String string) {
