@@ -1,4 +1,4 @@
-package dev.aura.lib.test.version;
+package dev.aura.lib.version;
 
 import static org.junit.Assert.assertArrayEquals;
 

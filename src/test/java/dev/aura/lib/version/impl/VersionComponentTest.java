@@ -1,4 +1,4 @@
-package dev.aura.lib.test.version.impl;
+package dev.aura.lib.version.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -11,7 +11,7 @@ import dev.aura.lib.version.impl.VersionComponent;
 
 public class VersionComponentTest {
     @Test
-    public void integrityTest() {
+    public void enumIntegrityTest() {
         assertEquals("Enum does not contain the expected values", "[LIST, NUMBER, STRING]",
                 Arrays.toString(VersionComponent.Type.values()));
 
