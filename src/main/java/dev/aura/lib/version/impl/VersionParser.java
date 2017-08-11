@@ -16,6 +16,9 @@ public class VersionParser {
     private static final Pattern number = Pattern.compile("^\\d+$");
 
     public static VersionComponent parse(String version) {
+        if (version == null)
+            return ZERO;
+
         Matcher matcher;
 
         for (Pattern separator : listSeparators) {
