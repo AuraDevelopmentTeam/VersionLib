@@ -8,6 +8,13 @@ import org.junit.Test;
 
 public class VersionParserTest {
     @Test
+    public void emptyTest() {
+        final VersionComponent expected = new StringComponent("");
+
+        assertEquals("Parser produced wrong result", expected, VersionParser.parse(""));
+    }
+
+    @Test
     public void nullTest() {
         final VersionComponent expected = VersionParser.ZERO;
 
