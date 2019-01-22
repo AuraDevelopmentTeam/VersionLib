@@ -1,3 +1,12 @@
+Version 1.0.4
+-------------
+
+\+ Added `hashCode` implementations.  
+\* Changed license to MIT.  
+\* Improved code coverage to 100%.  
+\* Changed code formatting.  
+
+
 Version 1.0.3
 -------------
 
