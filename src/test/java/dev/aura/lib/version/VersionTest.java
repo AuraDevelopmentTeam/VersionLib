@@ -1,7 +1,6 @@
 package dev.aura.lib.version;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -57,23 +56,23 @@ public class VersionTest {
     final Version versionNull = null;
     final Object versionObj = "";
 
-    assertEquals("versionA1 should be equal to versionA1", versionA1, versionA1);
-    assertEquals("versionA1 should be equal to versionA2", versionA1, versionA2);
-    assertNotEquals("versionA1 should not be equal to versionB", versionA1, versionB);
-    assertNotEquals("versionA1 should not be equal to versionNull", versionA1, versionNull);
-    assertNotEquals("versionA1 should not be equal to versionObj", versionA1, versionObj);
+    TestUtils.checkIfVersionsEqual(versionA1, versionA1);
+    TestUtils.checkIfVersionsEqual(versionA1, versionA2);
+    TestUtils.checkIfVersionsNotEqual(versionA1, versionB);
+    TestUtils.checkIfVersionsNotEqual(versionA1, versionNull);
+    TestUtils.checkIfVersionsNotEqual(versionA1, versionObj);
 
-    assertEquals("versionA2 should be equal to versionA1", versionA2, versionA1);
-    assertEquals("versionA2 should be equal to versionA2", versionA2, versionA2);
-    assertNotEquals("versionA2 should not be equal to versionB", versionA2, versionB);
-    assertNotEquals("versionA2 should not be equal to versionNull", versionA2, versionNull);
-    assertNotEquals("versionA1 should not be equal to versionObj", versionA2, versionObj);
+    TestUtils.checkIfVersionsEqual(versionA2, versionA1);
+    TestUtils.checkIfVersionsEqual(versionA2, versionA2);
+    TestUtils.checkIfVersionsNotEqual(versionA2, versionB);
+    TestUtils.checkIfVersionsNotEqual(versionA2, versionNull);
+    TestUtils.checkIfVersionsNotEqual(versionA2, versionObj);
 
-    assertNotEquals("versionB should not be equal to versionA1", versionB, versionA1);
-    assertNotEquals("versionB should not be equal to versionA2", versionB, versionA2);
-    assertEquals("versionB should be equal to versionB", versionB, versionB);
-    assertNotEquals("versionB should not be equal to versionNull", versionB, versionNull);
-    assertNotEquals("versionA1 should not be equal to versionObj", versionB, versionObj);
+    TestUtils.checkIfVersionsNotEqual(versionB, versionA1);
+    TestUtils.checkIfVersionsNotEqual(versionB, versionA2);
+    TestUtils.checkIfVersionsEqual(versionB, versionB);
+    TestUtils.checkIfVersionsNotEqual(versionB, versionNull);
+    TestUtils.checkIfVersionsNotEqual(versionB, versionObj);
   }
 
   @Test

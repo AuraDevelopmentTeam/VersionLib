@@ -2,6 +2,7 @@ package dev.aura.lib.version.impl;
 
 import static org.junit.Assert.assertEquals;
 
+import dev.aura.lib.version.TestUtils;
 import java.math.BigInteger;
 import org.junit.Test;
 
@@ -24,34 +25,52 @@ public class VersionParserTest {
   public void numberListTest() {
     final VersionComponent expected =
         new ListComponent(new NumberComponent(BigInteger.ONE), new NumberComponent(BigInteger.TEN));
+    final VersionComponent unexpected =
+        new ListComponent(new NumberComponent(BigInteger.ONE), new NumberComponent(BigInteger.ONE));
 
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("1_10"));
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("1-10"));
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("1.10"));
+    final String[] versions = new String[] {"1_10", "1-10", "1.10"};
+
+    for (final String version : versions) {
+      final VersionComponent actual = VersionParser.parse(version);
+
+      TestUtils.compareVersionComponents(expected, unexpected, actual);
+    }
   }
 
   @Test
   public void numberTest() {
-    final VersionComponent expected = new NumberComponent(BigInteger.ONE);
+    final VersionComponent expected = new NumberComponent(BigInteger.TEN);
+    final VersionComponent unexpected = new NumberComponent(BigInteger.ONE);
 
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("1"));
+    final VersionComponent actual = VersionParser.parse("10");
+
+    TestUtils.compareVersionComponents(expected, unexpected, actual);
   }
 
   @Test
   public void stringListTest() {
     final VersionComponent expected =
         new ListComponent(new StringComponent("abc"), new StringComponent("def"));
+    final VersionComponent unexpected =
+        new ListComponent(new StringComponent("abc"), new StringComponent("defg"));
 
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("abc_def"));
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("abc-def"));
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("abc.def"));
+    final String[] versions = new String[] {"abc_def", "abc-def", "abc.def"};
+
+    for (final String version : versions) {
+      final VersionComponent actual = VersionParser.parse(version);
+
+      TestUtils.compareVersionComponents(expected, unexpected, actual);
+    }
   }
 
   @Test
   public void stringTest() {
     final VersionComponent expected = new StringComponent("abc");
+    final VersionComponent unexpected = new StringComponent("abcd");
 
-    assertEquals("Parser produced wrong result", expected, VersionParser.parse("abc"));
+    final VersionComponent actual = VersionParser.parse("abc");
+
+    TestUtils.compareVersionComponents(expected, unexpected, actual);
   }
 
   @Test
@@ -61,9 +80,17 @@ public class VersionParserTest {
     final VersionComponent expected2 =
         new ListComponent(new StringComponent("abc"), new NumberComponent(BigInteger.ONE));
 
-    assertEquals("Parser produced wrong result", expected1, VersionParser.parse("1abc"));
-    assertEquals("Parser produced wrong result", expected2, VersionParser.parse("abc1"));
+    final VersionComponent actual1 = VersionParser.parse("1abc");
+    final VersionComponent actual2 = VersionParser.parse("abc1");
+
+    TestUtils.compareVersionComponents(expected1, expected2, actual1);
+    TestUtils.compareVersionComponents(expected2, expected1, actual2);
   }
 
   // TODO: More tests for more cases!
+
+  @Test(expected = UnsupportedOperationException.class)
+  public void hiddenConstuctorTest() throws Throwable {
+    TestUtils.checkHiddenConstructor(VersionParser.class);
+  }
 }

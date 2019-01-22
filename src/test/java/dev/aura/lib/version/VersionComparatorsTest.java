@@ -32,4 +32,9 @@ public class VersionComparatorsTest {
 
     TestUtils.assertSortsCorrectly(expectedOrder, VersionComparators.VERSION_REVERSE);
   }
+
+  @Test(expected = UnsupportedOperationException.class)
+  public void hiddenConstuctorTest() throws Throwable {
+    TestUtils.checkHiddenConstructor(VersionComparators.class);
+  }
 }
