@@ -1,3 +1,12 @@
+Version 1.0.3
+-------------
+
+\+ Added `serialVersionUID`s.  
+\* Enforcing minimum coverage.  
+\* Improved internal implementation.  
+\* Extended tests.  
+
+
 Version 1.0.2
 -------------
 
