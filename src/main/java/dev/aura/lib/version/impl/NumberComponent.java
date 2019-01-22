@@ -2,6 +2,7 @@ package dev.aura.lib.version.impl;
 
 import java.math.BigInteger;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -18,6 +19,7 @@ public class NumberComponent extends VersionComponent {
         return VersionComponent.Type.NUMBER;
     }
 
+    @SuppressFBWarnings(value = "RV_NEGATING_RESULT_OF_COMPARETO", justification = "Implementation requires the inversion of the value. The deeper implementations will never return Integer.MIN_VALUE in any realistic case")
     @Override
     public int compareTo(VersionComponent that) {
         VersionComponent.Type thatType = that.getVersionComponentType();
@@ -30,5 +32,10 @@ public class NumberComponent extends VersionComponent {
         NumberComponent thatNumber = (NumberComponent) that;
 
         return number.compareTo(thatNumber.number);
+    }
+    
+    @Override
+    public int hashCode() {
+        return number.hashCode();
     }
 }

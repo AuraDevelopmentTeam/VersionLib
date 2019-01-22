@@ -68,6 +68,18 @@ public class ListComponent extends VersionComponent {
 
         return 0;
     }
+    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int hash = 0;
+        
+        for(int i = components.size() - 1; i >= 0; --i) {
+            hash = (hash * prime) + components.get(i).hashCode();
+        }
+        
+        return hash;
+    }
 
     @Override
     public final VersionComponent.Type getVersionComponentType() {

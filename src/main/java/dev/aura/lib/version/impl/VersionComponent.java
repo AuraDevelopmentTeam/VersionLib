@@ -14,6 +14,9 @@ public abstract class VersionComponent implements Comparable<VersionComponent>, 
 
         return compareTo((VersionComponent) other) == 0;
     }
+    
+    @Override
+    public abstract int hashCode();
 
     public static enum Type {
         LIST, NUMBER, STRING;

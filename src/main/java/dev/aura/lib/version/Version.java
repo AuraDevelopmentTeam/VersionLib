@@ -32,4 +32,9 @@ public class Version implements Comparable<Version>, Serializable {
 
         return compareTo((Version) other) == 0;
     }
+    
+    @Override
+    public int hashCode() {
+        return component.hashCode();
+    }
 }
