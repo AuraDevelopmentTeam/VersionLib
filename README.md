@@ -1,6 +1,6 @@
 # Version Lib
 
-[![Current Version](https://badge.fury.io/gh/AuraDevelopmentTeam%2FVersionLib.svg)](https://maven.jnc.world/dev/aura/lib/version/VersionLib/)
+[![Current Version](https://badge.fury.io/gh/AuraDevelopmentTeam%2FVersionLib.svg)](https://maven.project-creative.de/service/rest/repository/browse/auradev-releases/dev/aura/lib/version/VersionLib/)
 [![Build Status](https://gitlab.project-creative.de/AuraDev/VersionLib/badges/master/build.svg)](https://gitlab.project-creative.de/AuraDev/VersionLib/pipelines)
 ![Coverage Report](https://gitlab.project-creative.de/AuraDev/VersionLib/badges/master/coverage.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f3362b2ecf874c269017381109a749e4)](https://www.codacy.com/app/AuraDevelopmentTeam/VersionLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AuraDevelopmentTeam/VersionLib&amp;utm_campaign=Badge_Grade)
@@ -11,19 +11,21 @@ A simple library for comparing versions!
 ## Table of Contents
 
 - [Downloads](#downloads)
-- [Developing with the API](#developing-with-the-api)
-	- [Maven](#maven)
-	- [Gradle](#gradle)
-- [Issue Reporting](#issue-reporting)
-- [Feature Requests](#feature-requests)
-- [Developing with the API](#developing-with-the-api)
+- [Using this library](#using-this-library)
+	- [Adding it to your project](#adding-it-to-your-project)
+		- [Maven](#maven)
+		- [Gradle](#gradle)
+	- [Usage](#usage)
+- [[Issue Reporting](https://github.com/AuraDevelopmentTeam/VersionLib/issues)](#issue-reportinghttpsgithubcomauradevelopmentteamversionlibissues)
+- [[Feature Requests](https://github.com/AuraDevelopmentTeam/VersionLib/issues)](#feature-requestshttpsgithubcomauradevelopmentteamversionlibissues)
+- [Developing with our Plugin](#developing-with-our-plugin)
 - [Setting up a Workspace/Compiling from Source](#setting-up-a-workspacecompiling-from-source)
-- [Development builds](#development-builds)
 - [PGP Signing](#pgp-signing)
 - [License](#license)
 - [Support](#support)
 	- [Getting Support](#getting-support)
 	- [Supporting us!](#supporting-us)
+- [Random Quote](#random-quote)
 
 ## Downloads
 
@@ -31,41 +33,64 @@ You can download all builds from:
 
 - Personal Maven: https://maven.jnc.world/dev/aura/lib/version/VersionLib/
 
-## Developing with the API
+## Using this library
+
+### Adding it to your project
 
 You can easily use this library by including it as a maven dependency, as all releases get uploaded to our maven repository. (Replace `{version}` with the
 appropriate version!)
 
-### Maven
+#### Maven
 
-    <repositories>
-        <repository>
-            <id>AuraDevelopmentTeam</id>
-            <url>https://maven.jnc.world</url>
-        </repository>
-    </repositories>
+```xml
+<repositories>
+		<repository>
+				<id>AuraDevelopmentTeam</id>
+				<url>https://maven.project-creative.de/repository/auradev-releases/</url>
+				<!--<url>https://maven.project-creative.de/repository/auradev-snapshots/</url>-->
+		</repository>
+</repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>dev.aura.lib.version</groupId>
-            <artifactId>VersionLib</artifactId>
-            <version>{version}</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+<dependencies>
+		<dependency>
+				<groupId>dev.aura.lib.version</groupId>
+				<artifactId>VersionLib</artifactId>
+				<version>{version}</version>
+				<scope>compile</scope>
+		</dependency>
+</dependencies>
+```
 
-### Gradle
+#### Gradle
 
-    repositories {
-        maven {
-            name "AuraDevelopmentTeam"
-            url "https://maven.jnc.world"
-        }
-    }
+```groovy
+repositories {
+		maven {
+				name "AuraDevelopmentTeam"
+				url "https://maven.project-creative.de/repository/auradev-releases/"
+				// url "https://maven.project-creative.de/repository/auradev-snaptshots/"
+		}
+}
 
-    dependencies {
-        compile "dev.aura.lib.version:VersionLib:{version}"
-    }
+dependencies {
+		compile "dev.aura.lib.version:VersionLib:{version}"
+}
+```
+
+### Usage
+
+Create a new `dev.aura.lib.version.Version` object by passing it the version specifier as a string:
+
+```java
+new Version("1.2.3-foobar");
+```
+
+Then you can use the normal methods like `equals` and `compareTo` to compare versions:
+
+```java
+(new Version("1.2.3")).compareTo(new Version("1.2.4")) < 0; // -> true
+(new Version("1.2.3")).equals(new Version("1.2.4"));        // -> false
+```
 
 ## [Issue Reporting](https://github.com/AuraDevelopmentTeam/VersionLib/issues)
 
