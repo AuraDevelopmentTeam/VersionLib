@@ -42,7 +42,7 @@ appropriate version!)
 
 #### Maven
 
-```maven
+```xml
 <repositories>
     <repository>
         <id>AuraDevelopmentTeam</id>
