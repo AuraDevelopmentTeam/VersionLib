@@ -42,7 +42,7 @@ appropriate version!)
 
 #### Maven
 
-```xml
+```maven
 <repositories>
     <repository>
         <id>AuraDevelopmentTeam</id>
@@ -52,7 +52,7 @@ appropriate version!)
 </repositories>
 
 <dependencies>
-		<dependency>
+    <dependency>
         <groupId>dev.aura.lib.version</groupId>
         <artifactId>VersionLib</artifactId>
         <version>{version}</version>
