@@ -44,36 +44,36 @@ appropriate version!)
 
 ```xml
 <repositories>
-		<repository>
-				<id>AuraDevelopmentTeam</id>
-				<url>https://maven.project-creative.de/repository/auradev-releases/</url>
-				<!--<url>https://maven.project-creative.de/repository/auradev-snapshots/</url>-->
-		</repository>
+    <repository>
+        <id>AuraDevelopmentTeam</id>
+        <url>https://maven.project-creative.de/repository/auradev-releases/</url>
+        <!--<url>https://maven.project-creative.de/repository/auradev-snapshots/</url>-->
+    </repository>
 </repositories>
 
 <dependencies>
 		<dependency>
-				<groupId>dev.aura.lib.version</groupId>
-				<artifactId>VersionLib</artifactId>
-				<version>{version}</version>
-				<scope>compile</scope>
-		</dependency>
+        <groupId>dev.aura.lib.version</groupId>
+        <artifactId>VersionLib</artifactId>
+        <version>{version}</version>
+        <scope>compile</scope>
+    </dependency>
 </dependencies>
 ```
 
 #### Gradle
 
-```groovy
+```gradle
 repositories {
-		maven {
-				name "AuraDevelopmentTeam"
-				url "https://maven.project-creative.de/repository/auradev-releases/"
-				// url "https://maven.project-creative.de/repository/auradev-snaptshots/"
-		}
+    maven {
+        name "AuraDevelopmentTeam"
+        url "https://maven.project-creative.de/repository/auradev-releases/"
+        // url "https://maven.project-creative.de/repository/auradev-snaptshots/"
+    }
 }
 
 dependencies {
-		compile "dev.aura.lib.version:VersionLib:{version}"
+    compile "dev.aura.lib.version:VersionLib:{version}"
 }
 ```
 
