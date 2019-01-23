@@ -132,11 +132,11 @@ So you want to add support or even develop an add-on for our plugin then you can
 ## PGP Signing
 
 All files will be signed with PGP.  
-The public key to verify it can be found in `misc/publicKey.asc`. The signatures of the files will also be found in the maven.
+The public key to verify it can be found in `keys/publicKey.asc`. The signatures of the files will also be found in the maven.
 
 ## License
 
-Version Lib is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)
+Version Lib is licensed under the [MIT License](https://opensource.org/licenses/MIT)
 
 ## Support
 
