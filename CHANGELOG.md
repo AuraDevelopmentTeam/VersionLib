@@ -1,3 +1,10 @@
+Version 1.1.0
+-------------
+
+\* Reimplemented parsing, so that `1.2.3-xxx` and `1.3.5` get compared correctly.  
+   This causes all directly parsed strings to be turned into a guaranteed 4 layer deep list.  
+
+
 Version 1.0.4
 -------------
 
