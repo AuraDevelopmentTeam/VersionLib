@@ -2,7 +2,6 @@ package dev.aura.lib.version.impl;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.experimental.UtilityClass;
 
@@ -20,18 +19,24 @@ public class VersionParser {
   private static final Pattern number = Pattern.compile("^\\d+$");
 
   public static VersionComponent parse(String version) {
-    if (version == null) return ZERO;
+    return parse(version, 0);
+  }
 
-    Matcher matcher;
+  protected static final VersionComponent parse(String version, int depth) {
+    if ((version == null) || (depth < 0)) return ZERO;
 
-    for (Pattern separator : listSeparators) {
-      matcher = separator.matcher(version);
+    if (depth < listSeparators.length) {
+      final Pattern separator = listSeparators[depth];
 
-      if (matcher.find())
-        return new ListComponent(Arrays.stream(separator.split(version)).map(VersionParser::parse));
+      return new ListComponent(
+          Arrays.stream(separator.split(version))
+              .map(splitVersion -> parse(splitVersion, depth + 1)));
+    } else {
+      if (number.matcher(version).find()) {
+        return new NumberComponent(new BigInteger(version));
+      } else {
+        return new StringComponent(version);
+      }
     }
-
-    if (number.matcher(version).find()) return new NumberComponent(new BigInteger(version));
-    else return new StringComponent(version);
   }
 }

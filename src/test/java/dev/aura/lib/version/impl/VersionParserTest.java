@@ -22,25 +22,51 @@ public class VersionParserTest {
   }
 
   @Test
+  public void negativeTest() {
+    final VersionComponent expected = VersionParser.ZERO;
+
+    assertEquals("Parser produced wrong result", expected, VersionParser.parse("", -1));
+  }
+
+  @Test
   public void numberListTest() {
-    final VersionComponent expected =
-        new ListComponent(new NumberComponent(BigInteger.ONE), new NumberComponent(BigInteger.TEN));
-    final VersionComponent unexpected =
-        new ListComponent(new NumberComponent(BigInteger.ONE), new NumberComponent(BigInteger.ONE));
+    final VersionComponent expected1 =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.ONE)))),
+            new ListComponent(
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.TEN)))));
+    final VersionComponent expected2 =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.ONE))),
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.TEN)))));
+    final VersionComponent expected3 =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(
+                    new ListComponent(new NumberComponent(BigInteger.ONE)),
+                    new ListComponent(new NumberComponent(BigInteger.TEN)))));
 
-    final String[] versions = new String[] {"1_10", "1-10", "1.10"};
+    final VersionComponent actual1 = VersionParser.parse("1_10");
+    final VersionComponent actual2 = VersionParser.parse("1-10");
+    final VersionComponent actual3 = VersionParser.parse("1.10");
 
-    for (final String version : versions) {
-      final VersionComponent actual = VersionParser.parse(version);
-
-      TestUtils.compareVersionComponents(expected, unexpected, actual);
-    }
+    TestUtils.compareVersionComponents(expected1, expected2, actual1);
+    TestUtils.compareVersionComponents(expected2, expected1, actual2);
+    TestUtils.compareVersionComponents(expected3, expected1, actual3);
   }
 
   @Test
   public void numberTest() {
-    final VersionComponent expected = new NumberComponent(BigInteger.TEN);
-    final VersionComponent unexpected = new NumberComponent(BigInteger.ONE);
+    final VersionComponent expected =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.TEN)))));
+    final VersionComponent unexpected =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(new ListComponent(new NumberComponent(BigInteger.ONE)))));
 
     final VersionComponent actual = VersionParser.parse("10");
 
@@ -49,18 +75,29 @@ public class VersionParserTest {
 
   @Test
   public void stringListTest() {
-    final VersionComponent expected =
-        new ListComponent(new StringComponent("abc"), new StringComponent("def"));
-    final VersionComponent unexpected =
-        new ListComponent(new StringComponent("abc"), new StringComponent("defg"));
+    final VersionComponent expected1 =
+        new ListComponent(
+            new ListComponent(new ListComponent(new ListComponent(new StringComponent("abc")))),
+            new ListComponent(new ListComponent(new ListComponent(new StringComponent("def")))));
+    final VersionComponent expected2 =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(new ListComponent(new StringComponent("abc"))),
+                new ListComponent(new ListComponent(new StringComponent("def")))));
+    final VersionComponent expected3 =
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(
+                    new ListComponent(new StringComponent("abc")),
+                    new ListComponent(new StringComponent("def")))));
 
-    final String[] versions = new String[] {"abc_def", "abc-def", "abc.def"};
+    final VersionComponent actual1 = VersionParser.parse("abc_def");
+    final VersionComponent actual2 = VersionParser.parse("abc-def");
+    final VersionComponent actual3 = VersionParser.parse("abc.def");
 
-    for (final String version : versions) {
-      final VersionComponent actual = VersionParser.parse(version);
-
-      TestUtils.compareVersionComponents(expected, unexpected, actual);
-    }
+    TestUtils.compareVersionComponents(expected1, expected2, actual1);
+    TestUtils.compareVersionComponents(expected2, expected1, actual2);
+    TestUtils.compareVersionComponents(expected3, expected1, actual3);
   }
 
   @Test
@@ -76,9 +113,17 @@ public class VersionParserTest {
   @Test
   public void transitionTest() {
     final VersionComponent expected1 =
-        new ListComponent(new NumberComponent(BigInteger.ONE), new StringComponent("abc"));
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(
+                    new ListComponent(
+                        new NumberComponent(BigInteger.ONE), new StringComponent("abc")))));
     final VersionComponent expected2 =
-        new ListComponent(new StringComponent("abc"), new NumberComponent(BigInteger.ONE));
+        new ListComponent(
+            new ListComponent(
+                new ListComponent(
+                    new ListComponent(
+                        new StringComponent("abc"), new NumberComponent(BigInteger.ONE)))));
 
     final VersionComponent actual1 = VersionParser.parse("1abc");
     final VersionComponent actual2 = VersionParser.parse("abc1");

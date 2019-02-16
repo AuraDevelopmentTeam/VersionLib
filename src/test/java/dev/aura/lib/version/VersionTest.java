@@ -163,11 +163,24 @@ public class VersionTest {
   }
 
   @Test
+  public void sublistMissingTest() {
+    final Version[] expectedOrder =
+        Arrays.asList(
+                "0.0", "0.0-0.1", "0.0-1.0", "0.0-1.1", "0.1", "0.1-0.1", "0.1-1.0", "0.1-1.1",
+                "1.0", "1.0-0.1", "1.0-1.0", "1.0-1.1", "1.1", "1.1-0.1", "1.1-1.0", "1.1-1.1")
+            .stream()
+            .map(Version::new)
+            .toArray(Version[]::new);
+
+    TestUtils.assertSortsCorrectly(expectedOrder);
+  }
+
+  @Test
   public void toStringTest() {
     final Version version = new Version("1.2.3_DEV");
 
     assertEquals(
-        "Version(input=1.2.3_DEV, component=ListComponent([ListComponent([NumberComponent(1), NumberComponent(2), NumberComponent(3)]), StringComponent(dev)]))",
+        "Version(input=1.2.3_DEV, component=ListComponent([ListComponent([ListComponent([ListComponent([NumberComponent(1)]), ListComponent([NumberComponent(2)]), ListComponent([NumberComponent(3)])])]), ListComponent([ListComponent([ListComponent([StringComponent(dev)])])])]))",
         version.toString());
   }
 
