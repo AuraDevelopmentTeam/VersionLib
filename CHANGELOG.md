@@ -1,3 +1,9 @@
+Version 1.1.1
+-------------
+
+\* Fixed URLs in docs.  
+
+
 Version 1.1.0
 -------------
 
