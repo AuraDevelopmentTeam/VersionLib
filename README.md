@@ -1,8 +1,8 @@
 # Version Lib
 
-[![Current Version](https://badge.fury.io/gh/AuraDevelopmentTeam%2FVersionLib.svg)](https://maven.project-creative.de/service/rest/repository/browse/auradev-releases/dev/aura/lib/version/VersionLib/)
-[![Build Status](https://gitlab.project-creative.de/AuraDev/VersionLib/badges/master/build.svg)](https://gitlab.project-creative.de/AuraDev/VersionLib/pipelines)
-![Coverage Report](https://gitlab.project-creative.de/AuraDev/VersionLib/badges/master/coverage.svg)
+[![Current Version](https://badge.fury.io/gh/AuraDevelopmentTeam%2FVersionLib.svg)](https://maven.aura-dev.team/service/rest/repository/browse/auradev-releases/dev/aura/lib/version/VersionLib/)
+[![Build Status](https://gitlab.aura-dev.team/AuraDev/VersionLib/badges/master/build.svg)](https://gitlab.aura-dev.team/AuraDev/VersionLib/pipelines)
+![Coverage Report](https://gitlab.aura-dev.team/AuraDev/VersionLib/badges/master/coverage.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f3362b2ecf874c269017381109a749e4)](https://www.codacy.com/app/AuraDevelopmentTeam/VersionLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AuraDevelopmentTeam/VersionLib&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/github/license/AuraDevelopmentTeam/VersionLib.svg)](https://github.com/AuraDevelopmentTeam/VersionLib/blob/master/LICENSE)
 
@@ -46,8 +46,8 @@ appropriate version!)
 <repositories>
     <repository>
         <id>AuraDevelopmentTeam</id>
-        <url>https://maven.project-creative.de/repository/auradev-releases/</url>
-        <!--<url>https://maven.project-creative.de/repository/auradev-snapshots/</url>-->
+        <url>https://maven.aura-dev.team/repository/auradev-releases/</url>
+        <!--<url>https://maven.aura-dev.team/repository/auradev-snapshots/</url>-->
     </repository>
 </repositories>
 
@@ -67,8 +67,8 @@ appropriate version!)
 repositories {
     maven {
         name "AuraDevelopmentTeam"
-        url "https://maven.project-creative.de/repository/auradev-releases/"
-        // url "https://maven.project-creative.de/repository/auradev-snaptshots/"
+        url "https://maven.aura-dev.team/repository/auradev-releases/"
+        // url "https://maven.aura-dev.team/repository/auradev-snaptshots/"
     }
 }
 
